@@ -42,7 +42,27 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class ncpa {
+class ncpa (
+  $community_string,
+  ) inherits ncpa::params {
 
+  ensure_resource( 'package', 'nagios-repo', {
+    'ensure'   => 'installed',
+    'source'   => $rpmrepo_url,
+    'provider' => 'rpm',
+  })
+
+  package { 'ncpa':
+    ensure  => installed,
+    require => Package['nagios-repo'],
+  }
+
+  file { '/usr/local/ncpa/etc/ncpa.cfg':
+    ensure => file,
+    mode   => '0644',
+    owner  => 'nagios',
+    group  => 'nagios',
+    content => epp('ncpa/ncpa.cfg.epp', { 'community_string' => $community_string })
+  }
 
 }
