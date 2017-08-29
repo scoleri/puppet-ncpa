@@ -1,0 +1,15 @@
+{
+  "name": "gerapeldoorn-ncpa",
+  "version": "0.1.0",
+  "author": "gerapeldoorn",
+  "summary": "Install and configure Nagios NCPA agent",
+  "license": "Apache-2.0",
+  "source": "https://github.com/gerapeldoorn/puppet-ncpa.git",
+  "project_page": "https://github.com/gerapeldoorn/puppet-ncpa",
+  "issues_url": "https://github.com/gerapeldoorn/puppet-ncpa/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
