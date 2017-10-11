@@ -32,6 +32,11 @@ class ncpa (
     'provider' => 'rpm',
   })
 
+  service { ['ncpa_listener', 'ncpa_passive']:
+    ensure => running,
+    enable => true,
+  }
+
   package { 'ncpa':
     ensure  => installed,
     require => Package['nagios-repo'],
@@ -42,7 +47,8 @@ class ncpa (
     mode    => '0644',
     owner   => 'nagios',
     group   => 'nagios',
-    content => epp('ncpa/ncpa.cfg.epp', { 'community_string' => $community_string })
+    content => epp('ncpa/ncpa.cfg.epp', { 'community_string' => $community_string }),
+    notify  => Service['ncpa_listener', 'ncpa_passive'],
   }
 
 }
