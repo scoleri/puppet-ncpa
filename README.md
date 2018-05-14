@@ -31,4 +31,4 @@ Currently only works for RHEL.
 Feel free to submit a PR
 
 ## Release Notes
-## 0.1.0 Initial release
+## 0.3.0 Made upgrade possible for nagios package (added parameter)

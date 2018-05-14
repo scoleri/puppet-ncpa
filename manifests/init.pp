@@ -23,11 +23,12 @@
 #
 class ncpa (
   $community_string,
+  $version = 'installed',
   $rpmrepo_url = $ncpa::params::rpmrepo_url,
   ) inherits ncpa::params {
 
   ensure_resource( 'package', 'nagios-repo', {
-    'ensure'   => 'installed',
+    'ensure'   => $version,
     'source'   => $rpmrepo_url,
     'provider' => 'rpm',
   })
