@@ -1,9 +1,9 @@
 # == Class: ncpa::params
 #
 class ncpa::params {
-  casej$::os['family'] {
+  case $::os['family'] {
     'RedHat': {
-      casej$::os['release']['major']{
+      case $::os['release']['major']{
         '7': {
           $rpmrepo_url = 'https://repo.nagios.com/nagios/7/nagios-repo-7-3.el7.noarch.rpm'
         }
