@@ -13,6 +13,8 @@ class ncpa::params {
         '5': {
           $rpmrepo_url = 'https://repo.nagios.com/nagios/5/nagios-repo-5-2.el5.noarch.rpm'
         }
+      }
+    }
     default: {
       fail("Sorry, ${::os['family']} is not supported.")
     }
